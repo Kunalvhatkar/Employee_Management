@@ -1,16 +1,17 @@
-const API="http://YOUR-ELASTIC-BEANSTALK-URL/login";
+const API="http://localhost:5000"; //Elastic beaanstolk url
 
-document
-.getElementById("loginForm")
-.addEventListener("submit",async(e)=>{
+document.getElementById("loginForm").onsubmit=async(e)=>{
 
 e.preventDefault();
 
-const username=document.getElementById("username").value;
+const data={
 
-const password=document.getElementById("password").value;
+email:email.value,
+password:password.value
 
-const response=await fetch(API,{
+};
+
+const res=await fetch(API+"/login",{
 
 method:"POST",
 
@@ -18,27 +19,22 @@ headers:{
 "Content-Type":"application/json"
 },
 
-body:JSON.stringify({
-username,
-password
-})
+body:JSON.stringify(data)
 
 });
 
-const data=await response.json();
+const result=await res.json();
 
-if(data.success){
+if(result.token){
 
-localStorage.setItem("token",data.token);
+localStorage.setItem("token",result.token);
 
 window.location="dashboard.html";
 
-}
+}else{
 
-else{
-
-document.getElementById("message").innerHTML="Invalid Login";
+alert(result.message);
 
 }
 
-});
+}

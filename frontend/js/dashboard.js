@@ -1,18 +1,26 @@
-const API="http://YOUR-ELASTIC-BEANSTALK-URL";
+const API="http://localhost:5000"; //EBS url
+
+const token=localStorage.getItem("token");
 
 loadEmployees();
 
 async function loadEmployees(){
 
-const response=await fetch(API+"/employees");
+const res=await fetch(API+"/employees",{
 
-const employees=await response.json();
+headers:{
+Authorization:token
+}
 
-let table="";
+});
+
+const employees=await res.json();
+
+let html="";
 
 employees.forEach(emp=>{
 
-table+=`
+html+=`
 
 <tr>
 
@@ -22,14 +30,11 @@ table+=`
 
 <td>${emp.department}</td>
 
-<td>${emp.designation}</td>
+<td>${emp.salary}</td>
 
 <td>
 
-<button
-
-class="delete-btn"
-
+<button class="delete"
 onclick="deleteEmployee('${emp._id}')">
 
 Delete
@@ -44,37 +49,32 @@ Delete
 
 });
 
-document.getElementById("employeeTable").innerHTML=table;
+employeeTable.innerHTML=html;
 
 }
 
-document
-
-.getElementById("employeeForm")
-
-.addEventListener("submit",async(e)=>{
+employeeForm.onsubmit=async(e)=>{
 
 e.preventDefault();
 
 const employee={
 
 name:name.value,
-
 email:email.value,
-
 department:department.value,
-
-designation:designation.value
+salary:salary.value
 
 };
 
-await fetch(API+"/employee",{
+await fetch(API+"/employees",{
 
 method:"POST",
 
 headers:{
 
-"Content-Type":"application/json"
+"Content-Type":"application/json",
+
+Authorization:token
 
 },
 
@@ -86,24 +86,22 @@ employeeForm.reset();
 
 loadEmployees();
 
-});
+}
 
 async function deleteEmployee(id){
 
-await fetch(API+"/employee/"+id,{
+await fetch(API+"/employees/"+id,{
 
-method:"DELETE"
+method:"DELETE",
+
+headers:{
+
+Authorization:token
+
+}
 
 });
 
 loadEmployees();
-
-}
-
-function logout(){
-
-localStorage.clear();
-
-window.location="index.html";
 
 }
