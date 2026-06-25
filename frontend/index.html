@@ -1,29 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Employee Management</title>
-
-<link rel="stylesheet" href="css/style.css">
+    <title>Employee Management - Login</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="login-container">
+<div class="container">
 
-<h1>Employee Management System</h1>
-
-<div class="login-card">
-
-<h2>Login</h2>
+<h2>Employee Management System</h2>
 
 <form id="loginForm">
 
 <input
-type="text"
-id="username"
-placeholder="Username"
+type="email"
+id="email"
+placeholder="Email"
 required>
 
 <input
@@ -36,11 +29,12 @@ required>
 Login
 </button>
 
-<p id="message"></p>
-
 </form>
 
-</div>
+<p>
+Don't have an account?
+<a href="register.html">Register</a>
+</p>
 
 </div>
 

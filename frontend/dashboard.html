@@ -1,13 +1,7 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
 
 <title>Dashboard</title>
 
@@ -17,59 +11,41 @@ content="width=device-width, initial-scale=1.0">
 
 <body>
 
-<header>
+<div class="container">
 
 <h2>Employee Dashboard</h2>
-
-<button onclick="logout()">
-
-Logout
-
-</button>
-
-</header>
-
-<section class="card">
 
 <h3>Add Employee</h3>
 
 <form id="employeeForm">
 
 <input
-type="text"
 id="name"
 placeholder="Employee Name"
 required>
 
 <input
-type="email"
 id="email"
-placeholder="Email"
+placeholder="Employee Email"
 required>
 
 <input
-type="text"
 id="department"
 placeholder="Department"
 required>
 
 <input
-type="text"
-id="designation"
-placeholder="Designation"
+id="salary"
+placeholder="Salary"
 required>
 
-<button type="submit">
-
+<button>
 Add Employee
-
 </button>
 
 </form>
 
-</section>
-
-<section class="card">
+<hr>
 
 <h3>Employee List</h3>
 
@@ -85,9 +61,9 @@ Add Employee
 
 <th>Department</th>
 
-<th>Designation</th>
+<th>Salary</th>
 
-<th>Delete</th>
+<th>Action</th>
 
 </tr>
 
@@ -99,7 +75,7 @@ Add Employee
 
 </table>
 
-</section>
+</div>
 
 <script src="js/dashboard.js"></script>
 
