@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h2>Employee Dashboard</h2>
+
+<button onclick="logout()">
+
+Logout
+
+</button>
+
+</header>
+
+<section class="card">
+
+<h3>Add Employee</h3>
+
+<form id="employeeForm">
+
+<input
+type="text"
+id="name"
+placeholder="Employee Name"
+required>
+
+<input
+type="email"
+id="email"
+placeholder="Email"
+required>
+
+<input
+type="text"
+id="department"
+placeholder="Department"
+required>
+
+<input
+type="text"
+id="designation"
+placeholder="Designation"
+required>
+
+<button type="submit">
+
+Add Employee
+
+</button>
+
+</form>
+
+</section>
+
+<section class="card">
+
+<h3>Employee List</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Department</th>
+
+<th>Designation</th>
+
+<th>Delete</th>
+
+</tr>
+
+</thead>
+
+<tbody id="employeeTable">
+
+</tbody>
+
+</table>
+
+</section>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
